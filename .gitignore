@@ -1,0 +1,39 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with 'go test -c'
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Executable Output
+app
+
+# Logs
+*.log
+
+# Uploaded files directory
+uploads/
+
+# Dependency directories (uncomment if using vendoring)
+# vendor/
+
+# IDE and Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Project Plan
+project_plan.txt
