@@ -1,0 +1,74 @@
+Project Overview
+Objective: Build a monolithic Go web API that integrates multiple cybersecurity tools, accessible via different endpoints.
+Development Setup:
+Editor: VSCodium.
+Version Control: Git and GitHub.
+CI/CD Pipeline: Automatic deployment to your VPS upon pushing to GitHub.
+Deployment Environment:
+VPS: Existing VPS with Nginx serving your personal website.
+Domain: Use subdomains or paths to access different tools.
+1. Set Up Your Development Environment
+a. Install Go
+
+Download and install Go from golang.org/dl.
+Verify installation:
+bash
+Copy code
+go version
+b. Configure VSCodium
+
+Install the Go extension by the Go team for code editing and linting.
+Install GitLens for enhanced Git capabilities.
+c. Set Up Git and GitHub
+
+Initialize a Git repository in your project directory:
+bash
+Copy code
+git init
+Create a new repository on GitHub and link it:
+bash
+Copy code
+git remote add origin https://github.com/13city/your-repo-name.git
+2. Initialize Your Go Project
+a. Create Project Directory
+
+bash
+Copy code
+mkdir cybersecurity-tools
+cd cybersecurity-tools
+b. Initialize Go Modules
+
+bash
+Copy code
+go mod init github.com/13city/goapi
+c. Install Gin Web Framework
+
+bash
+Copy code
+go get -u github.com/gin-gonic/gin
+
+
+*****************************
+
+# Build the application
+go build -o app main.go
+
+# Run the application
+./app
+
+*******************************
+
+# Build the application
+go build -o app
+
+# Run the application
+./app
+
+# Run the application without building
+go run .
+
+# Format the code
+go fmt ./...
+
+# Check for potential issues
+go vet ./...
