@@ -1,4 +1,5 @@
-# goapi
+
+# GoAPI
 
 ![GoAPI Banner](./assets/go-logo-white.svg)
 
@@ -11,15 +12,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Business Use Cases](#business-use-cases)
-  - [1. Network Security Assessment](#1-network-security-assessment)
-  - [2. Secure Communication](#2-secure-communication)
-  - [3. Data Protection](#3-data-protection)
-  - [4. Threat Detection](#4-threat-detection)
-  - [5. Secure File Management](#5-secure-file-management)
-  - [6. Password Policy Enforcement](#6-password-policy-enforcement)
 - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Steps](#steps)
 - [Usage](#usage)
   - [1. Simple Port Scanner](#1-simple-port-scanner)
   - [2. HTTP Proxy Server](#2-http-proxy-server)
@@ -33,285 +26,193 @@
 - [License](#license)
 - [Contact](#contact)
 
+---
+
 ## Introduction
 
-**goapi** is a monolithic Go-based API platform designed to provide a suite of essential cybersecurity tools. Built with scalability and performance in mind, **goapi** integrates multiple utilities into a single, cohesive application, streamlining cybersecurity operations for businesses of all sizes.
+**goapi** is a Go-based API platform designed to provide a suite of essential cybersecurity tools. With scalability and performance in mind, **goapi** integrates multiple utilities into a single cohesive application, streamlining cybersecurity operations for businesses of all sizes.
 
 ![GoAPI Architecture Diagram](./assets/goapi-architecture-diagram.svg)
 
+---
+
 ## Features
 
-- **Simple Port Scanner**: Efficiently scans open ports on target hosts to identify potential vulnerabilities.
-- **HTTP Proxy Server**: Facilitates secure and anonymous browsing by routing HTTP requests through the proxy.
-- **Encryption/Decryption Utility**: Provides robust encryption and decryption functionalities to protect sensitive data.
-- **Log Analysis Tool**: Analyzes server logs to identify suspicious activities and potential security breaches.
-- **Secure File Transfer Tool**: Enables secure uploading and downloading of files with encryption.
-- **Password Strength Analyzer**: Evaluates the strength of passwords to ensure they meet security standards.
+- **Simple Port Scanner**: Scans open ports on target hosts to identify vulnerabilities.
+- **HTTP Proxy Server**: Routes HTTP requests through the proxy for secure and anonymous browsing.
+- **Encryption/Decryption Utility**: Robust encryption and decryption functionalities for protecting sensitive data.
+- **Log Analysis Tool**: Analyzes server logs to detect suspicious activity.
+- **Secure File Transfer Tool**: Securely uploads and downloads files with encryption.
+- **Password Strength Analyzer**: Evaluates password strength to meet security standards.
+
+---
 
 ## Business Use Cases
 
-### 1. Network Security Assessment
+- **Network Security Assessment**: Regularly assess network vulnerabilities.
+- **Secure Communication**: Ensure secure data transmission through the proxy server.
+- **Data Protection**: Safeguard sensitive data in transit and at rest with encryption.
+- **Threat Detection**: Analyze logs to detect potential security breaches in real-time.
+- **File Management**: Securely handle file transfers with encryption.
+- **Password Enforcement**: Enforce strong password policies to reduce unauthorized access risks.
 
-Businesses can utilize the **Simple Port Scanner** to perform regular network security assessments, identifying open ports that could be exploited by malicious actors. This proactive approach helps in mitigating potential threats before they can cause harm.
-
-### 2. Secure Communication
-
-The **HTTP Proxy Server** ensures that all HTTP communications are routed securely, providing anonymity and protecting against eavesdropping. This is crucial for businesses that handle sensitive information and require secure data transmission channels.
-
-### 3. Data Protection
-
-With the **Encryption/Decryption Utility**, companies can safeguard sensitive data both at rest and in transit. This tool is essential for maintaining data integrity and complying with data protection regulations like GDPR and HIPAA.
-
-### 4. Threat Detection
-
-The **Log Analysis Tool** automates the process of monitoring and analyzing server logs, enabling businesses to detect and respond to suspicious activities in real-time. This enhances the organization's ability to prevent and respond to security incidents effectively.
-
-### 5. Secure File Management
-
-The **Secure File Transfer Tool** allows businesses to manage file uploads and downloads securely. By ensuring that all file transfers are encrypted, companies can prevent unauthorized access and data breaches.
-
-### 6. Password Policy Enforcement
-
-The **Password Strength Analyzer** assists businesses in enforcing strong password policies, reducing the risk of unauthorized access due to weak or compromised passwords. This tool helps in maintaining a robust security posture.
+---
 
 ## Installation
 
 ### Prerequisites
 
-- **Go**: Ensure that Go is installed on your system. You can download it from [Go's official website](https://golang.org/dl/).
-- **Git**: To clone the repository.
+- **Go** (Install from [Go's official website](https://golang.org/dl/))
+- **Git** (To clone the repository)
 
 ### Steps
 
-1. **Clone the Repository**
+```bash
+# Clone the repository
+git clone https://github.com/13city/goapi.git
+cd goapi
 
-    ```bash
-    git clone https://github.com/yourusername/goapi.git
-    cd goapi
-    ```
+# Install dependencies
+go mod tidy
 
-2. **Install Dependencies**
+# Build the application
+go build -o app main.go
 
-    ```bash
-    go mod tidy
-    ```
+# Run the application
+./app
+```
 
-3. **Build the Application**
+The server will start on `http://localhost:8080`.
 
-    ```bash
-    go build -o app main.go
-    ```
-
-4. **Run the Application**
-
-    ```bash
-    ./app
-    ```
-
-    The server will start on `http://localhost:8080`.
+---
 
 ## Usage
 
-Once the application is running, you can interact with the various endpoints using `curl`, Postman, or any other API testing tool.
+Once the application is running, you can interact with the various endpoints using `curl` or any API testing tool.
+
+---
 
 ### 1. Simple Port Scanner
 
-**Endpoint:** `/portscanner`
+```bash
+# Scan open ports on a target host
+curl "http://localhost:8080/portscanner?target=scanme.nmap.org&startPort=20&endPort=80"
+```
 
-**Method:** `GET`
+---
 
-**Parameters:**
-- `target` (string, required): The target host to scan.
-- `startPort` (int, optional): The starting port number (default: 1).
-- `endPort` (int, optional): The ending port number (default: 1024).
-
-**Example:**
+### 2. HTTP Proxy Server
 
 ```bash
-curl "http://localhost:8080/portscanner?target=scanme.nmap.org&startPort=20&endPort=80"
-2. HTTP Proxy Server
-Endpoint: /proxy
-
-Method: GET
-
-Parameters:
-
-url (string, required): The URL to proxy.
-Example:
-
-bash
-Copy code
+# Send a request through the proxy
 curl "http://localhost:8080/proxy?url=http://example.com"
-3. Encryption/Decryption Utility
-Endpoints: /encrypt, /decrypt
+```
 
-Method: GET
+---
 
-Parameters:
+### 3. Encryption/Decryption Utility
 
-text (string, required): The text to encrypt/decrypt.
-key (string, required): The encryption key (must be 32 bytes long).
-Examples:
-
-Encrypt:
-
-bash
-Copy code
+```bash
+# Encrypt text
 curl "http://localhost:8080/encrypt?text=HelloWorld&key=your-32-byte-long-encryption-key!!"
-Decrypt:
 
-bash
-Copy code
+# Decrypt text
 curl "http://localhost:8080/decrypt?text=encryptedText&key=your-32-byte-long-encryption-key!!"
-4. Log Analysis Tool
-Endpoint: /loganalysis
+```
 
-Method: POST
+---
 
-Parameters:
+### 4. Log Analysis Tool
 
-logfile (file, required): The log file to analyze.
-Example:
-
-bash
-Copy code
+```bash
+# Analyze a log file
 curl -F "logfile=@/path/to/logfile.log" http://localhost:8080/loganalysis
-5. Secure File Transfer Tool
-Endpoints: /upload, /download
+```
 
-Methods: POST, GET
+---
 
-Parameters:
+### 5. Secure File Transfer Tool
 
-Upload:
-
-file (file, required): The file to upload.
-Download:
-
-filename (string, required): The name of the file to download.
-Examples:
-
-Upload:
-
-bash
-Copy code
+```bash
+# Upload a file
 curl -F "file=@/path/to/yourfile.txt" http://localhost:8080/upload
-Download:
 
-bash
-Copy code
+# Download a file
 curl "http://localhost:8080/download?filename=yourfile.txt" -O
-6. Password Strength Analyzer
-Endpoint: /passwordstrength
+```
 
-Method: GET
+---
 
-Parameters:
+### 6. Password Strength Analyzer
 
-password (string, required): The password to analyze.
-Example:
-
-bash
-Copy code
+```bash
+# Analyze password strength
 curl "http://localhost:8080/passwordstrength?password=YourP@ssw0rd!"
-Project Structure
-go
-Copy code
+```
+
+---
+
+## Project Structure
+
+Here is the detailed project structure for **goapi**:
+
+```plaintext
 goapi/
-├── go.mod
-├── go.sum
-├── main.go
-├── portscanner/
+├── go.mod                   # Module definition
+├── go.sum                   # Dependencies
+├── main.go                  # Main application
+├── portscanner/             # Port Scanner module
 │   └── portscanner.go
-├── proxy/
+├── proxy/                   # Proxy Server module
 │   └── proxy.go
-├── encryption/
+├── encryption/              # Encryption/Decryption module
 │   └── encryption.go
-├── loganalysis/
+├── loganalysis/             # Log Analysis module
 │   └── loganalysis.go
-├── filetransfer/
+├── filetransfer/            # Secure File Transfer module
 │   └── filetransfer.go
-├── passwordstrength/
+├── passwordstrength/        # Password Strength Analyzer module
 │   └── passwordstrength.go
-├── images/
+├── images/                  # Images for the repository
 │   ├── banner.png
 │   └── architecture.png
-├── uploads/
-│   └── # Uploaded files will be stored here
-├── commands.txt
-└── README.md
-Adding and Styling Images
-To enhance the visual appeal of your repository, you can add images such as banners, architecture diagrams, and screenshots. Follow these steps to add images to your repository:
+├── uploads/                 # Uploaded files storage
+├── commands.txt             # Script commands
+└── README.md                # Documentation
+```
 
-Create an Images Directory
+---
 
-bash
-Copy code
-mkdir images
-Add Your Images
+## Contributing
 
-Place your image files (e.g., banner.png, architecture.png) inside the images directory.
+Contributions are welcome! Follow these steps to contribute:
 
-Reference Images in README.md
+```bash
+# Fork the repository
+git clone https://github.com/13city/goapi.git
 
-Use relative paths to include images in your README.md. For example:
-
-markdown
-Copy code
-![GoAPI Banner](./images/banner.png)
-![Architecture Diagram](./images/architecture.png)
-Styling Images
-
-Markdown doesn't support extensive styling, but you can control the size and alignment using HTML tags within the markdown file.
-
-html
-Copy code
-<img src="./images/banner.png" alt="GoAPI Banner" width="800"/>
-Example:
-
-markdown
-Copy code
-<img src="./images/banner.png" alt="GoAPI Banner" width="800"/>
-This will render the image with a width of 800 pixels. You can adjust the width attribute as needed.
-
-Contributing
-Contributions are welcome! If you'd like to contribute to goapi, please follow these steps:
-
-Fork the Repository
-
-Click the Fork button at the top right of this page to create your own fork of the repository.
-
-Clone Your Fork
-
-bash
-Copy code
-git clone https://github.com/yourusername/goapi.git
-cd goapi
-Create a New Branch
-
-bash
-Copy code
+# Create a new branch
 git checkout -b feature/YourFeatureName
-Make Your Changes
 
-Implement your feature or bug fix.
-
-Commit Your Changes
-
-bash
-Copy code
+# Commit your changes
 git add .
 git commit -m "Add feature: YourFeatureName"
-Push to Your Fork
 
-bash
-Copy code
+# Push to your fork and create a pull request
 git push origin feature/YourFeatureName
-Create a Pull Request
+```
 
-Go to your forked repository on GitHub and click the Compare & pull request button. Provide a detailed description of your changes and submit the pull request.
+---
 
-License
+## License
+
 This project is licensed under the MIT License.
 
-GitHub: @13city
+---
+
+## Contact
+
+For questions or suggestions, feel free to reach out:
+
+- GitHub: [13city](https://github.com/13city)
+
