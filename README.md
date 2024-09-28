@@ -74,45 +74,6 @@ The **Secure File Transfer Tool** allows businesses to manage file uploads and d
 
 The **Password Strength Analyzer** assists businesses in enforcing strong password policies, reducing the risk of unauthorized access due to weak or compromised passwords. This tool helps in maintaining a robust security posture.
 
-
-       +-------------------------+
-       |       Client (UI)        |
-       +-------------------------+
-                |
-                v
-+------------------------------------------+
-|             API Server (Go)              |
-|  - Handles incoming requests             |
-|  - Coordinates with modules              |
-+------------------+-----------------------+
-  |                |                  |
-  v                v                  v
-+------------------+    +------------------+
-| Port Scanner     |    | Proxy Server      |
-|                  |    |                  |
-+------------------+    +------------------+
-  |                |                  |
-  v                v                  v
-+------------------+    +------------------+
-| Encryption/Decryp.|    | Log Analysis     |
-| Module            |    | Module           |
-+------------------+    +------------------+
-  |                |                  |
-  v                v                  v
-+------------------+    +------------------+
-| File Transfer    |    | Password Strength |
-| Module           |    | Analyzer Module   |
-+------------------+    +------------------+
-
-       +------------------+
-       |   File Storage    |
-       +------------------+
-
-       +------------------+
-       |     Database      |
-       +------------------+
-
-
 ## Installation
 
 ### Prerequisites
