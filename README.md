@@ -2,9 +2,9 @@
 
 ![GoAPI Banner](./assets/go-logo-white.svg)
 
-![License](https://img.shields.io/github/license/yourusername/goapi)
-![Go Version](https://img.shields.io/github/go-mod/go-version/yourusername/goapi)
-![Build Status](https://img.shields.io/github/workflow/status/yourusername/goapi/Go%20CI)
+![License](https://img.shields.io/github/license/13city/goapi)
+![Go Version](https://img.shields.io/github/go-mod/go-version/13city/goapi)
+![Build Status](https://img.shields.io/github/actions/workflow/status/13city/goapi/go.yml?branch=main)
 
 ## Table of Contents
 
